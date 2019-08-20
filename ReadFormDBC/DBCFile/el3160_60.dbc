@@ -1,0 +1,185 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: PC EL3160_60
+VAL_TABLE_ S_RegMode 8 "CR2" 6 "CR1" 4 "CP" 2 "CV" 0 "CC" ;
+VAL_TABLE_ R_Status_Battest 1 "Running" 0 "Stopped" ;
+VAL_TABLE_ R_Status_Input 1 "On" 0 "Off" ;
+VAL_TABLE_ Alarm_Types 2 "Alarm gone" 1 "Alarm active" 0 "No alarm" ;
+VAL_TABLE_ Alarm_Codes 28 "PF" 1 "OVP" 0 "No alarm" ;
+VAL_TABLE_ R_Status_Reg_Mode 4 "CV" 3 "CC" 2 "CP" 1 "CR2" 0 "CR1" ;
+VAL_TABLE_ R_Status_Reg_Act 3 "CP" 2 "CC" 1 "CR" 0 "CV" ;
+VAL_TABLE_ R_Status_Level_Mode 4 "Setup" 3 "Level B" 2 "Level A/B" 1 "Battery" 0 "Level A" ;
+VAL_TABLE_ R_Status_Access 3 "Local" 2 "External" 1 "Remote" 0 "Free access" ;
+VAL_TABLE_ Com_Errors 56 "Object access not possible" 49 "Lower limit of object exceeded" 48 "Upper limit of object exceeded" 20 "CAN driver buffer full" 18 "CAN transmission error" 17 "CAN CRC error" 16 "CAN stuffing error" 15 "Device is in local" 13 "Message buffer overflow" 9 "Read/write law hurt, no access" 8 "Wrong object length" 7 "Object unknown" 0 "No error" ;
+VAL_TABLE_ R_Control_Mask 96 "Control mode" 16 "Remote on/off" 14 "Regulation mode" 1 "Input on/off" ;
+VAL_TABLE_ S_Control_Mask 96 "Control mode" 16 "Remote on/off" 14 "Regulation mode" 1 "Input on/off" ;
+VAL_TABLE_ Send_Objects 92 "Level AB: Rise time" 91 "Level AB: Pulse time Level B" 90 "Level AB: Pulse time Level A" 64 "Battest: Elapsed time" 13 "Interface card firmware version" 12 "Interface card article number" 11 "Interface card serial number" 10 "Interface card type" 8 "Device manufacturer's name" 6 "Device article number" 1 "Device serial number" 0 "Device type" 89 "Level AB: Set value R2 of B" 88 "Level AB: Set value R1 of B" 87 "Level AB: Set value P of B" 86 "Level AB: Set value I of B" 85 "Level AB: Set value U of B" 84 "Level AB: Set value R2 of A" 83 "Level AB: Set value R1 of A" 82 "Level AB: Set value P of A" 81 "Level AB: Set value I of A" 80 "Level AB: Set value U of A" 77 "Alarms" 71 "Actual values U, I, P" 70 "Device status" 69 "Battest: Ah value" 68 "Battest: Set value R2" 67 "Battest: Set value R1" 66 "Battest: Set value P" 65 "Battest: Set value I" 63 "Level B: Set value R2" 62 "Level B: Set value R1" 61 "Level B: Set value P" 60 "Level B: Set value I" 59 "Level B: Set value U" 57 "Nominal resistance 2 (R2)" 55 "Level A: Set value R2" 54 "Control" 53 "Level A: Set value R1" 52 "Level A: Set value P" 51 "Level A: Set value I" 50 "Level A: Set value U" 41 "Battest: Ulow" 37 "Nominal resistance 1 (R1)" 19 "Device class" 9 "Device software version" 7 "User text" 4 "Nominal power" 3 "Nominal current" 2 "Nominal voltage" ;
+VAL_TABLE_ Read_Objects 64 "Battest: Elapsed time" 255 "Communication error" 89 "Level AB: Set value R2 of B" 88 "Level AB: Set value R1 of B" 87 "Level AB: Set value P of B" 86 "Level AB: Set value I of B" 85 "Level AB: Set value U of B" 84 "Level AB: Set value R2 of A" 83 "Level AB: Set value R1 of A" 82 "Level AB: Set value P of A" 81 "Level AB: Set value I of A" 80 "Level AB: Set value U of A" 77 "Alarms" 71 "Actual values U, I, P" 70 "Device status" 69 "Battest: Ah value" 68 "Battest: Set value R2" 67 "Battest: Set value R1" 66 "Battest: Set value P" 65 "Battest: Set value I" 63 "Level B: Set value R2" 62 "Level B: Set value R1" 61 "Level B: Set value P" 60 "Level B: Set value I" 59 "Level B: Set value U" 57 "Nominal resistance 2 (R2)" 55 "Level A: Set value R2" 54 "Control" 53 "Level A: Set value R1" 52 "Level A: Set value P" 51 "Level A: Set value I" 50 "Level A: Set value U" 41 "Battest: Ulow" 37 "Nominal resistance 1 (R1)" 19 "Device class" 9 "Device software version" 7 "User text" 4 "Nominal power" 3 "Nominal current" 2 "Nominal voltage" ;
+VAL_TABLE_ Control_Mask 96 "Control mode" 16 "Remote on/off" 14 "Regulation mode" 1 "Input on/off" ;
+
+
+BO_ 2 Read_Object: 8 EL3160_60
+ SG_ Last_Com_Errror m255 : 15|8@0+ (1,0) [0|0] ""  PC
+ SG_ R_Level_B_Voltage m59 : 15|16@0+ (0.00625,0) [0|160] "V"  PC
+ SG_ R_Level_B_Resistance_1 m62 : 15|16@0+ (0.000390625,0) [0|10] "Ohm"  PC
+ SG_ R_Level_B_Power m61 : 15|16@0+ (0.015625,0) [0|400] "W"  PC
+ SG_ R_Battest_Ah m69 : 15|32@0- (1,0) [0|0] "Ah"  PC
+ SG_ Nom_Voltage m2 : 15|32@0- (1,0) [0|0] "V"  PC
+ SG_ Status_Reg_Mode m70 : 21|3@0+ (1,0) [0|0] ""  PC
+ SG_ Status_Reg_Act m70 : 18|2@0+ (1,0) [0|0] ""  PC
+ SG_ Status_Level_Mode m70 : 15|3@0+ (1,0) [0|0] ""  PC
+ SG_ Status_Input m70 : 16|1@0+ (1,0) [0|0] ""  PC
+ SG_ Status_Battest m70 : 12|1@0+ (1,0) [0|0] ""  PC
+ SG_ Status_Access m70 : 9|2@0+ (1,0) [0|0] ""  PC
+ SG_ R_Level_B_Resistance_2 m63 : 15|16@0+ (0.015625,0) [0|400] "Ohm"  PC
+ SG_ R_Level_B_Current m60 : 15|16@0+ (0.00234375,0) [0|60] "A"  PC
+ SG_ R_Level_AB_B_Voltage m85 : 15|16@0+ (0.00625,0) [0|160] "V"  PC
+ SG_ R_Level_AB_B_Resistance_2 m89 : 15|16@0+ (0.015625,0) [0|400] "Ohm"  PC
+ SG_ R_Level_AB_B_Resistance_1 m88 : 15|16@0+ (0.000390625,0) [0|10] "Ohm"  PC
+ SG_ R_Level_AB_B_Power m87 : 15|16@0+ (0.015625,0) [0|400] "W"  PC
+ SG_ R_Level_AB_B_Current m86 : 15|16@0+ (0.00234375,0) [0|60] "A"  PC
+ SG_ R_Level_AB_A_Voltage m80 : 15|16@0+ (0.00625,0) [0|160] "V"  PC
+ SG_ R_Level_AB_A_Resistance_2 m84 : 15|16@0+ (0.015625,0) [0|400] "Ohm"  PC
+ SG_ R_Level_AB_A_Resistance_1 m83 : 15|16@0+ (0.000390625,0) [0|10] "Ohm"  PC
+ SG_ R_Level_AB_A_Power m82 : 15|16@0+ (0.015625,0) [0|400] "W"  PC
+ SG_ R_Level_AB_A_Current m81 : 15|16@0+ (0.00234375,0) [0|60] "A"  PC
+ SG_ R_Level_A_Voltage m50 : 15|16@0+ (0.00625,0) [0|160] "V"  PC
+ SG_ R_Level_A_Resistance_2 m55 : 15|16@0+ (0.015625,0) [0|400] "Ohm"  PC
+ SG_ R_Level_A_Resistance_1 m53 : 15|16@0+ (0.000390625,0) [0|10] "Ohm"  PC
+ SG_ R_Level_A_Power m52 : 15|16@0+ (0.015625,0) [0|400] "W"  PC
+ SG_ R_Level_A_Current m51 : 15|16@0+ (0.00234375,0) [0|60] "A"  PC
+ SG_ R_Control_Remote m54 : 20|1@0+ (1,0) [0|0] ""  PC
+ SG_ R_Control_RegMode m54 : 19|3@0+ (1,0) [0|0] ""  PC
+ SG_ R_Control_Mask m54 : 15|8@0+ (1,0) [0|0] ""  PC
+ SG_ R_Control_Input m54 : 16|1@0+ (1,0) [0|0] ""  PC
+ SG_ R_Control_CtrlMode m54 : 22|2@0+ (1,0) [0|0] ""  PC
+ SG_ R_Battest_Ulow m41 : 15|16@0+ (0.00625,0) [0|160] "V"  PC
+ SG_ R_Battest_Resistance_2 m68 : 15|16@0+ (0.015625,0) [0|400] "Ohm"  PC
+ SG_ R_Battest_Resistance_1 m67 : 15|16@0+ (0.000390625,0) [0|10] "Ohm"  PC
+ SG_ R_Battest_Power m66 : 15|16@0+ (0.015625,0) [0|400] "W"  PC
+ SG_ R_Battest_Current m65 : 15|16@0+ (0.00234375,0) [0|60] "A"  PC
+ SG_ Nom_Resistance_2 m57 : 15|32@0- (1,0) [0|0] "Ohm"  PC
+ SG_ Nom_Resistance_1 m37 : 15|32@0- (1,0) [0|0] "Ohm"  PC
+ SG_ Nom_Power m4 : 15|32@0- (1,0) [0|0] "W"  PC
+ SG_ Nom_Current m3 : 15|32@0- (1,0) [0|0] "A"  PC
+ SG_ Alarm_Type_3 m77 : 15|8@0+ (1,0) [0|0] ""  PC
+ SG_ Alarm_Type_2 m77 : 31|8@0+ (1,0) [0|0] ""  PC
+ SG_ Alarm_Type_1 m77 : 47|8@0+ (1,0) [0|0] ""  PC
+ SG_ Alarm_Code_3 m77 : 23|8@0+ (1,0) [0|0] ""  PC
+ SG_ Alarm_Code_2 m77 : 39|8@0+ (1,0) [0|0] ""  PC
+ SG_ Alarm_Code_1 m77 : 55|8@0+ (1,0) [0|0] ""  PC
+ SG_ Actual_Value_Voltage m71 : 15|16@0+ (0.00625,0) [0|160] "V"  PC
+ SG_ Actual_Value_Power m71 : 47|16@0+ (0.015625,0) [0|400] "W"  PC
+ SG_ Actual_Value_Current m71 : 31|16@0+ (0.00234375,0) [0|60] "A"  PC
+ SG_ Read_Mux M : 7|8@0+ (1,0) [0|0] ""  PC
+
+BO_ 1 Query_Object: 1 PC
+ SG_ Query_Mux : 7|8@0+ (1,0) [0|0] ""  EL3160_60
+
+BO_ 3 Send_Object: 8 PC
+ SG_ S_Control_Alarm m54 : 23|1@0+ (1,0) [0|0] ""  EL3160_60
+ SG_ S_Level_B_Voltage m59 : 15|16@0+ (0.00625,0) [0|160] "V"  EL3160_60
+ SG_ S_Level_B_Resistance_2 m63 : 15|16@0+ (0.015625,0) [0|400] "Ohm"  EL3160_60
+ SG_ S_Level_B_Resistance_1 m62 : 15|16@0+ (0.000390625,0) [0|10] "Ohm"  EL3160_60
+ SG_ S_Level_B_Power m61 : 15|16@0+ (0.015625,0) [0|400] "W"  EL3160_60
+ SG_ S_Level_B_Current m60 : 15|16@0+ (0.00234375,0) [0|60] "A"  EL3160_60
+ SG_ S_Level_AB_B_Voltage m85 : 15|16@0+ (0.00625,0) [0|160] "V"  EL3160_60
+ SG_ S_Level_AB_B_Resistance_2 m89 : 15|16@0+ (0.015625,0) [0|400] "Ohm"  EL3160_60
+ SG_ S_Level_AB_B_Resistance_1 m88 : 15|16@0+ (0.000390625,0) [0|10] "Ohm"  EL3160_60
+ SG_ S_Level_AB_B_Power m87 : 15|16@0+ (0.015625,0) [0|400] "W"  EL3160_60
+ SG_ S_Level_AB_B_Current m86 : 15|16@0+ (0.00234375,0) [0|60] "A"  EL3160_60
+ SG_ S_Level_AB_A_Voltage m80 : 15|16@0+ (0.00625,0) [0|160] "V"  EL3160_60
+ SG_ S_Level_AB_A_Resistance_2 m84 : 15|16@0+ (0.015625,0) [0|400] "Ohm"  EL3160_60
+ SG_ S_Level_AB_A_Resistance_1 m83 : 15|16@0+ (0.000390625,0) [0|10] "Ohm"  EL3160_60
+ SG_ S_Level_AB_A_Power m82 : 15|16@0+ (0.015625,0) [0|400] "W"  EL3160_60
+ SG_ S_Level_AB_A_Current m81 : 15|16@0+ (0.00234375,0) [0|60] "A"  EL3160_60
+ SG_ S_Level_A_Voltage m50 : 15|16@0+ (0.00625,0) [0|160] "V"  EL3160_60
+ SG_ S_Level_A_Resistance_2 m55 : 15|16@0+ (0.015625,0) [0|400] "Ohm"  EL3160_60
+ SG_ S_Level_A_Resistance_1 m53 : 15|16@0+ (0.000390625,0) [0|10] "Ohm"  EL3160_60
+ SG_ S_Level_A_Power m52 : 15|16@0+ (0.015625,0) [0|400] "W"  EL3160_60
+ SG_ S_Level_A_Current m51 : 15|16@0+ (0.00234375,0) [0|60] "A"  EL3160_60
+ SG_ S_Control_Remote m54 : 20|1@0+ (1,0) [0|0] ""  EL3160_60
+ SG_ S_Control_RegMode m54 : 19|3@0+ (1,0) [0|0] ""  EL3160_60
+ SG_ S_Control_Mask m54 : 15|8@0+ (1,0) [0|0] ""  EL3160_60
+ SG_ S_Control_Input m54 : 16|1@0+ (1,0) [0|0] ""  EL3160_60
+ SG_ S_Control_CtrlMode m54 : 22|2@0+ (1,0) [0|0] ""  EL3160_60
+ SG_ S_Battest_Ulow m41 : 15|16@0+ (0.00625,0) [0|160] "V"  EL3160_60
+ SG_ S_Battest_Res2 m68 : 15|16@0+ (0.015625,0) [0|400] "Ohm"  EL3160_60
+ SG_ S_Battest_Resistance_1 m67 : 15|16@0+ (0.000390625,0) [0|10] "Ohm"  EL3160_60
+ SG_ S_Battest_Power m66 : 15|16@0+ (0.015625,0) [0|400] "W"  EL3160_60
+ SG_ S_Battest_Current m65 : 15|16@0+ (0.00234375,0) [0|60] "A"  EL3160_60
+ SG_ Send_Mux M : 7|8@0+ (1,0) [0|0] ""  EL3160_60
+
+
+
+VAL_ 2 Last_Com_Errror 56 "Object access not possible" 49 "Lower limit of object exceeded" 48 "Upper limit of object exceeded" 20 "CAN driver buffer full" 18 "CAN transmission error" 17 "CAN CRC error" 16 "CAN stuffing error" 15 "Device is in local" 13 "Message buffer overflow" 9 "Read/write law hurt, no access" 8 "Wrong object length" 7 "Object unknown" 0 "No error" ;
+VAL_ 2 Status_Reg_Mode 4 "CV" 3 "CC" 2 "CP" 1 "CR2" 0 "CR1" ;
+VAL_ 2 Status_Reg_Act 3 "CP" 2 "CC" 1 "CR" 0 "CV" ;
+VAL_ 2 Status_Level_Mode 4 "Setup" 3 "Level B" 2 "Level A/B" 1 "Battery" 0 "Level A" ;
+VAL_ 2 Status_Input 1 "On" 0 "Off" ;
+VAL_ 2 Status_Battest 1 "Running" 0 "Stopped" ;
+VAL_ 2 Status_Access 3 "Local" 2 "External" 1 "Remote" 0 "Free" ;
+VAL_ 2 R_Control_Mask 96 "Control mode" 16 "Remote on/off" 14 "Regulation mode" 1 "Input on/off" ;
+VAL_ 2 Alarm_Type_3 2 "Alarm gone" 1 "Alarm active" 0 "No alarm" ;
+VAL_ 2 Alarm_Type_2 2 "Alarm gone" 1 "Alarm active" 0 "No alarm" ;
+VAL_ 2 Alarm_Type_1 2 "Alarm gone" 1 "Alarm active" 0 "No alarm" ;
+VAL_ 2 Alarm_Code_3 28 "PF" 1 "OVP" 0 "No alarm" ;
+VAL_ 2 Alarm_Code_2 28 "PF" 1 "OVP" 0 "No alarm" ;
+VAL_ 2 Alarm_Code_1 28 "PF" 1 "OVP" 0 "No alarm" ;
+VAL_ 2 Read_Mux 64 "Battest: Elapsed time" 255 "Communication error" 89 "Level AB: Set value R2 of B" 88 "Level AB: Set value R1 of B" 87 "Level AB: Set value P of B" 86 "Level AB: Set value I of B" 85 "Level AB: Set value U of B" 84 "Level AB: Set value R2 of A" 83 "Level AB: Set value R1 of A" 82 "Level AB: Set value P of A" 81 "Level AB: Set value I of A" 80 "Level AB: Set value U of A" 77 "Alarms" 71 "Actual values U, I, P" 70 "Device status" 69 "Battest: Ah value" 68 "Battest: Set value R2" 67 "Battest: Set value R1" 66 "Battest: Set value P" 65 "Battest: Set value I" 63 "Level B: Set value R2" 62 "Level B: Set value R1" 61 "Level B: Set value P" 60 "Level B: Set value I" 59 "Level B: Set value U" 57 "Nominal resistance 2 (R2)" 55 "Level A: Set value R2" 54 "Control" 53 "Level A: Set value R1" 52 "Level A: Set value P" 51 "Level A: Set value I" 50 "Level A: Set value U" 41 "Battest: Ulow" 37 "Nominal resistance 1 (R1)" 19 "Device class" 9 "Device software version" 7 "User text" 4 "Nominal power" 3 "Nominal current" 2 "Nominal voltage" ;
+VAL_ 1 Query_Mux 76 "CAN: Cyclic data rate" 89 "Level AB: Set value R2 of B" 88 "Level AB: Set value R1 of B" 87 "Level AB: Set value P of B" 86 "Level AB: Set value I of B" 85 "Level AB: Set value U of B" 84 "Level AB: Set value R2 of A" 83 "Level AB: Set value R1 of A" 82 "Level AB: Set value P of A" 81 "Level AB: Set value I of A" 80 "Level AB: Set value U of A" 77 "Alarms" 71 "Actual values U, I, P" 70 "Device status" 69 "Battest: Ah value" 68 "Battest: Set value R2" 67 "Battest: Set value R1" 66 "Battest: Set value P" 65 "Battest: Set value I" 63 "Level B: Set value R2" 62 "Level B: Set value R1" 61 "Level B: Set value P" 60 "Level B: Set value I" 59 "Level B: Set value U" 57 "Nominal resistance 2 (R2)" 55 "Level A: Set value R2" 54 "Control" 53 "Level A: Set value R1" 52 "Level A: Set value P" 51 "Level A: Set value I" 50 "Level A: Set value U" 41 "Battest: Ulow" 37 "Nominal resistance 1 (R1)" 19 "Device class" 9 "Device software version" 7 "User text" 4 "Nominal power" 3 "Nominal current" 2 "Nominal voltage" ;
+VAL_ 3 S_Control_RegMode 3 "CR1" 1 "CV" 4 "CR2" 2 "CP" 0 "CC" ;
+VAL_ 3 S_Control_Mask 96 "Control mode" 16 "Remote on/off" 14 "Regulation mode" 1 "Input on/off" ;
+VAL_ 3 Send_Mux 89 "Level AB: Set value R2 of B" 88 "Level AB: Set value R1 of B" 87 "Level AB: Set value P of B" 86 "Level AB: Set value I of B" 85 "Level AB: Set value U of B" 84 "Level AB: Set value R2 of A" 83 "Level AB: Set value R1 of A" 82 "Level AB: Set value P of A" 81 "Level AB: Set value I of A" 80 "Level AB: Set value U of A" 77 "Alarms" 71 "Actual values U, I, P" 70 "Device status" 69 "Battest: Ah value" 68 "Battest: Set value R2" 67 "Battest: Set value R1" 66 "Battest: Set value P" 65 "Battest: Set value I" 63 "Level B: Set value R2" 62 "Level B: Set value R1" 61 "Level B: Set value P" 60 "Level B: Set value I" 59 "Level B: Set value U" 57 "Nominal resistance 2 (R2)" 55 "Level A: Set value R2" 54 "Control" 53 "Level A: Set value R1" 52 "Level A: Set value P" 51 "Level A: Set value I" 50 "Level A: Set value U" 41 "Battest: Ulow" 37 "Nominal resistance 1 (R1)" 19 "Device class" 9 "Device software version" 7 "User text" 4 "Nominal power" 3 "Nominal current" 2 "Nominal voltage" ;
+SIG_GROUP_ 2 Nominal_Values 1 : Nom_Voltage Nom_Resistance_2 Nom_Resistance_1 Nom_Power Nom_Current;
+SIG_GROUP_ 2 Device_Status 1 : Last_Com_Errror Alarm_Type_3 Alarm_Type_2 Alarm_Type_1 Alarm_Code_3 Alarm_Code_2 Alarm_Code_1 Actual_Value_Voltage Actual_Value_Power Actual_Value_Current Status_Reg_Mode Status_Reg_Act Status_Level_Mode Status_Input Status_Battest Status_Access;
+SIG_GROUP_ 2 Device_Control 1 : R_Control_Remote R_Control_RegMode R_Control_Mask R_Control_Input R_Control_CtrlMode;
+SIG_GROUP_ 2 Battery_Test 1 : R_Battest_Ulow R_Battest_Resistance_2 R_Battest_Resistance_1 R_Battest_Power R_Battest_Current R_Battest_Ah;
+SIG_GROUP_ 2 Level_AB 1 : R_Level_AB_B_Voltage R_Level_AB_B_Resistance_2 R_Level_AB_B_Resistance_1 R_Level_AB_B_Power R_Level_AB_B_Current R_Level_AB_A_Voltage R_Level_AB_A_Resistance_2 R_Level_AB_A_Resistance_1 R_Level_AB_A_Power R_Level_AB_A_Current;
+SIG_GROUP_ 2 Level_B 1 : R_Level_B_Voltage R_Level_B_Resistance_1 R_Level_B_Power R_Level_B_Resistance_2 R_Level_B_Current;
+SIG_GROUP_ 2 Level_A 1 : R_Level_A_Voltage R_Level_A_Resistance_2 R_Level_A_Resistance_1 R_Level_A_Power R_Level_A_Current;
+SIG_GROUP_ 3 Device_Control 1 : S_Control_Alarm S_Control_CtrlMode S_Control_Remote S_Control_RegMode S_Control_Input S_Control_Mask;
+SIG_GROUP_ 3 Battery_Test 1 : S_Battest_Ulow S_Battest_Res2 S_Battest_Resistance_1 S_Battest_Power S_Battest_Current;
+SIG_GROUP_ 3 Level_B 1 : S_Level_B_Voltage S_Level_B_Resistance_2 S_Level_B_Resistance_1 S_Level_B_Power S_Level_B_Current;
+SIG_GROUP_ 3 Level_A 1 : S_Level_A_Voltage S_Level_A_Resistance_2 S_Level_A_Resistance_1 S_Level_A_Power S_Level_A_Current;
+SIG_GROUP_ 3 Level_AB 1 : S_Level_AB_B_Voltage S_Level_AB_B_Resistance_2 S_Level_AB_B_Resistance_1 S_Level_AB_B_Power S_Level_AB_B_Current S_Level_AB_A_Voltage S_Level_AB_A_Resistance_2 S_Level_AB_A_Resistance_1 S_Level_AB_A_Power S_Level_AB_A_Current;
+SIG_VALTYPE_ 2 R_Battest_Ah : 1;
+SIG_VALTYPE_ 2 Nom_Voltage : 1;
+SIG_VALTYPE_ 2 Nom_Resistance_2 : 1;
+SIG_VALTYPE_ 2 Nom_Resistance_1 : 1;
+SIG_VALTYPE_ 2 Nom_Power : 1;
+SIG_VALTYPE_ 2 Nom_Current : 1;
+
